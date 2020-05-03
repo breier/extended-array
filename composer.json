@@ -1,0 +1,32 @@
+{
+    "name": "breier/extended-array",
+    "description": "A class that extends PHP-SPL ArrayIterator and implements loads of functionalities from PHP plain array handling",
+    "license": "GPL-3.0-or-later",
+    "keywords": ["php", "extend", "array", "list", "collection"],
+    "version": "2.0.0",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andre Breier",
+            "email": "breier.de@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "ext-pdo": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Breier\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    }
+}
