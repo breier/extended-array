@@ -1,4 +1,4 @@
-# Extended Array Docs
+# Extended Array
 This library started from a discussion on whether it's intuitive or not
 to get the first element of an array using "reset()". Well I think it's not!
 
