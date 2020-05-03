@@ -505,7 +505,7 @@ class ExtendedArrayTest extends TestCase
             'fail-non-array-object' => ['parameter' => $this],
             'fail-non-array-int' => ['parameter' => 1024],
             'fail-non-array-serial' => ['parameter' => $this->extendedArray->serialize()],
-            'fail-non-array-json' => ['parameter' => $this->extendedArray->jsonSerialize()],
+            'fail-non-array-json' => ['parameter' => $this->extendedArray->jsonEncode()],
         ];
     }
 
@@ -738,7 +738,7 @@ class ExtendedArrayTest extends TestCase
                 return json_encode([$item, -1]);
             }
             $item->asort()->append($item->count());
-            return $item->jsonSerialize();
+            return $item->jsonEncode();
         };
         $expectedPlainArrayMap = [
             'one' => '[1,-1]',

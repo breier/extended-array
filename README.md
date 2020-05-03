@@ -56,7 +56,7 @@ to improve its use as a clean Object Oriented Class.
   | first         |                        | this   | `[added]` First is an alias for "rewind"
   | getArrayCopy  |                        | array  | Extending method to convert sub-objects to array
   | isArrayObject | mixed $array           | bool   | `[added][static]` Identifies usable classes
-  | jsonSerialize | <nobr>[int $options[, int $depth]]</nobr> | string | `[added]` JSON Serialize
+  | jsonEncode    | <nobr>[int $options[, int $depth]]</nobr> | string | `[added]` JSON Encode
   | ksort         |                        | this   | Extending method to update position map
   | last          |                        | this   | `[added]` Last is an alias to "end"
   | natcasesort   |                        | this   | Extending method to update position map
@@ -370,7 +370,7 @@ Extending map to support objects.
           function ($element) {
             return strlen($element) == 5;
           }
-        )->jsonSerialize();
+        )->jsonEncode();
       }
     )
   );

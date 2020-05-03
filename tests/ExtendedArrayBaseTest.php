@@ -131,7 +131,7 @@ class ExtendedArrayBaseTest extends TestCase
         $magicStringFromObject = sprintf('%s', $this->extendedArray);
         $this->assertSame(
             $magicStringFromObject,
-            $this->extendedArray->jsonSerialize()
+            $this->extendedArray->jsonEncode()
         );
         $this->assertSame(
             key($this->plainArray),
@@ -277,20 +277,20 @@ class ExtendedArrayBaseTest extends TestCase
             'fail-non-array-object' => ['parameter' => $this],
             'fail-non-array-int' => ['parameter' => 1024],
             'fail-non-array-serial' => ['parameter' => $this->extendedArray->serialize()],
-            'fail-non-array-json' => ['parameter' => $this->extendedArray->jsonSerialize()],
+            'fail-non-array-json' => ['parameter' => $this->extendedArray->jsonEncode()],
         ];
     }
 
     /**
      * Test Json Serialize
      */
-    public function testJsonSerialize(): void
+    public function testJsonEncode(): void
     {
         $this->extendedArray->next();
         next($this->plainArray);
 
         $plainArrayJSON = json_encode($this->plainArray);
-        $extendedArrayJSON = $this->extendedArray->jsonSerialize();
+        $extendedArrayJSON = $this->extendedArray->jsonEncode();
         $this->assertSame(
             $plainArrayJSON,
             $extendedArrayJSON
@@ -300,7 +300,7 @@ class ExtendedArrayBaseTest extends TestCase
             $this->plainArray,
             JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
         );
-        $extendedArrayPrettyJSON = $this->extendedArray->jsonSerialize(
+        $extendedArrayPrettyJSON = $this->extendedArray->jsonEncode(
             JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
         );
         $this->assertSame(
@@ -313,7 +313,7 @@ class ExtendedArrayBaseTest extends TestCase
             $this->extendedArray->key()
         );
 
-        $this->assertSame('{}', $this->emptyArray->jsonSerialize());
+        $this->assertSame('{}', $this->emptyArray->jsonEncode());
     }
 
     /**

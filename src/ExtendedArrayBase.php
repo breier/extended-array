@@ -90,7 +90,7 @@ abstract class ExtendedArrayBase extends ArrayIterator
      */
     public function __toString(): string
     {
-        return $this->jsonSerialize();
+        return $this->jsonEncode();
     }
 
     /**
@@ -173,12 +173,12 @@ abstract class ExtendedArrayBase extends ArrayIterator
     }
 
     /**
-     * JSON Serialize
+     * JSON Encode
      *
      * @param int $options (JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | ...)
      * @param int $depth   Recursion level
      */
-    public function jsonSerialize(
+    public function jsonEncode(
         int $options = JSON_THROW_ON_ERROR,
         int $depth = 512
     ): string {
