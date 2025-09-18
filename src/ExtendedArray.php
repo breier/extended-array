@@ -122,7 +122,7 @@ class ExtendedArray extends ExtendedArrayBase
      * @param int      $flag     (ARRAY_FILTER_USE_KEY, ARRAY_FILTER_USE_BOTH)
      */
     public function filter(
-        callable $callback = null,
+        ?callable $callback = null,
         int $flag = 0
     ): ExtendedArray {
         if (is_null($callback)) {
@@ -146,7 +146,7 @@ class ExtendedArray extends ExtendedArrayBase
      * @param int      $flag     (ARRAY_FILTER_USE_KEY, ARRAY_FILTER_USE_BOTH)
      */
     public function filterWithObjects(
-        callable $callback = null,
+        ?callable $callback = null,
         int $flag = 0
     ): ExtendedArray {
         if (is_null($callback)) {

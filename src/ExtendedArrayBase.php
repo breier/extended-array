@@ -97,9 +97,9 @@ abstract class ExtendedArrayBase extends ArrayIterator
      * Extending ASort Method to support sub-arrays
      * Sort ascending by elements
      */
-    public function asort(): ExtendedArrayBase
+    public function asort(int $flags = SORT_REGULAR): true
     {
-        return $this->uasort(
+        $this->uasort(
             function ($a, $b) {
                 if (static::isArrayObject($a)) {
                     $a = $a->getArrayCopy();
@@ -110,6 +110,8 @@ abstract class ExtendedArrayBase extends ArrayIterator
                 return $a < $b ? -1 : 1;
             }
         );
+
+        return true;
     }
 
     /**
@@ -194,13 +196,15 @@ abstract class ExtendedArrayBase extends ArrayIterator
      * Extending KSort Method to update position map
      * Sort ascending by element indexes
      */
-    public function ksort(): ExtendedArrayBase
+    public function ksort(int $flags = SORT_REGULAR): true
     {
-        parent::ksort();
+        parent::ksort($flags);
 
         $this->updatePositionMap();
 
-        return $this->rewind();
+        $this->rewind();
+
+        return true;
     }
 
     /**

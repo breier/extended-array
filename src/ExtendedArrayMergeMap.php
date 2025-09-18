@@ -97,9 +97,9 @@ class ExtendedArrayMergeMap
             static::mergePush($preparedParams, $subParams);
         }
 
-        foreach ($preparedParams as &$element) {
+        foreach ($preparedParams as $key => $element) {
             if (! $element instanceof static) {
-                $element = new static($element);
+                $preparedParams->offsetSet($key, new static($element));
             }
         }
 

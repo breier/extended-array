@@ -737,9 +737,12 @@ class ExtendedArrayTest extends TestCase
             if (!ExtendedArray::isArrayObject($item)) {
                 return json_encode([$item, -1]);
             }
-            $item->asort()->append($item->count());
+            $item->asort();
+            $item->append($item->count());
+
             return $item->jsonEncode();
         };
+
         $expectedPlainArrayMap = [
             'one' => '[1,-1]',
             0 => '[{"2":"two","3":"three"},-1]',
@@ -748,6 +751,7 @@ class ExtendedArrayTest extends TestCase
             'six' => '[{"temp":"long string that\'s not'
                 . ' so long","empty":null},-1]'
         ];
+
         $expectedExtendedArrayMap = [
             'one' => '[1,-1]',
             0 => '{"3":"three","2":"two","4":2}',
@@ -756,10 +760,12 @@ class ExtendedArrayTest extends TestCase
             'six' => '{"empty":null,"temp":"long string'
                 . ' that\'s not so long","0":2}'
         ];
+
         $this->assertSame(
             array_map($methodMap, $this->plainArray),
             $expectedPlainArrayMap
         );
+
         $this->assertSame(
             $expectedExtendedArrayMap,
             $this->extendedArray->mapWithObjects($methodMap)->getArrayCopy()

@@ -176,9 +176,11 @@ class ExtendedArrayBaseTest extends TestCase
 
         asort($this->plainArray);
 
+        $this->extendedArray->asort();
+
         $this->assertSame(
             $this->plainArray,
-            $this->extendedArray->asort()->getArrayCopy()
+            $this->extendedArray->getArrayCopy()
         );
         $this->assertSame(
             array_keys($this->plainArray),
@@ -189,7 +191,9 @@ class ExtendedArrayBaseTest extends TestCase
             $this->extendedArray->key()
         );
 
-        $this->assertSame([], $this->emptyArray->asort()->getArrayCopy());
+        $this->emptyArray->asort();
+
+        $this->assertSame([], $this->emptyArray->getArrayCopy());
     }
 
     /**
@@ -326,9 +330,11 @@ class ExtendedArrayBaseTest extends TestCase
 
         ksort($this->plainArray);
 
+        $this->extendedArray->ksort();
+
         $this->assertSame(
             $this->plainArray,
-            $this->extendedArray->ksort()->getArrayCopy()
+            $this->extendedArray->getArrayCopy()
         );
         $this->assertSame(
             array_keys($this->plainArray),
@@ -339,7 +345,9 @@ class ExtendedArrayBaseTest extends TestCase
             $this->extendedArray->key()
         );
 
-        $this->assertSame([], $this->emptyArray->ksort()->getArrayCopy());
+        $this->emptyArray->ksort();
+
+        $this->assertSame([], $this->emptyArray->getArrayCopy());
     }
 
     /**

@@ -3,7 +3,7 @@
     "description": "A class that extends PHP-SPL ArrayIterator and implements loads of functionalities from PHP plain array handling",
     "license": "GPL-3.0-or-later",
     "keywords": ["php", "extend", "array", "list", "collection"],
-    "version": "2.1.0",
+    "version": "2.2.1",
     "type": "library",
     "authors": [
         {
@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "ext-json": "*"
     },
     "require-dev": {
